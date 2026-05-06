@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>for ben&lt;3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section class="stage unlock-stage is-active" id="unlockStage" aria-label="Password unlock">
+        <span class="decor-heart decor-heart-1" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-2" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-3" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-4" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-5" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-6" aria-hidden="true"></span>
+
+        <div class="unlock-layout">
+          <article class="photo-side" aria-label="Photo">
+            <div class="photo-frame">
+              <img id="heroPhoto" src="assets/photos/hug-cat.gif" alt="A happy cat surrounded by hearts">
+            </div>
+          </article>
+
+          <section class="keypad-panel" id="keypadPanel" aria-labelledby="passwordTitle">
+            <p class="soft-label">tiny secret lock</p>
+            <h1 id="passwordTitle">the code is a special date...</h1>
+
+            <div class="code-row" id="codeRow" aria-label="Entered password">
+              <span class="code-box" aria-hidden="true"></span>
+              <span class="code-box" aria-hidden="true"></span>
+              <span class="code-box" aria-hidden="true"></span>
+              <span class="code-box" aria-hidden="true"></span>
+              <span class="code-box" aria-hidden="true"></span>
+              <span class="code-box" aria-hidden="true"></span>
+            </div>
+            <p class="sr-only" id="statusMessage" aria-live="polite"></p>
+
+            <div class="keypad" aria-label="Password keypad">
+              <button class="heart-key" type="button" data-digit="1"><span>1</span></button>
+              <button class="heart-key" type="button" data-digit="2"><span>2</span></button>
+              <button class="heart-key" type="button" data-digit="3"><span>3</span></button>
+              <button class="heart-key" type="button" data-digit="4"><span>4</span></button>
+              <button class="heart-key" type="button" data-digit="5"><span>5</span></button>
+              <button class="heart-key" type="button" data-digit="6"><span>6</span></button>
+              <button class="heart-key" type="button" data-digit="7"><span>7</span></button>
+              <button class="heart-key" type="button" data-digit="8"><span>8</span></button>
+              <button class="heart-key" type="button" data-digit="9"><span>9</span></button>
+              <button class="action-key" type="button" data-action="clear">clear</button>
+              <button class="heart-key" type="button" data-digit="0"><span>0</span></button>
+              <button class="action-key" type="button" data-action="backspace" aria-label="Delete last digit">back</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="stage intro-stage" id="introStage" aria-label="Unlocked message" aria-hidden="true">
+        <span class="decor-heart decor-heart-1" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-2" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-5" aria-hidden="true"></span>
+
+        <div class="message-card">
+          <p class="soft-label">unlocked</p>
+          <h2 class="type-message" id="typeMessage" aria-live="polite"></h2>
+        </div>
+      </section>
+
+      <section class="stage puzzle-stage" id="puzzleStage" aria-label="Pink Minesweeper puzzle" aria-hidden="true">
+        <div class="puzzle-shell">
+          <header class="puzzle-header">
+            <div>
+              <p class="soft-label puzzle-label">minesweeper</p>
+              <h2>you can do this!</h2>
+              <p class="controls-copy">
+                <span>Left click = heart flag</span>
+                <span>Right click = unlock spaces</span>
+              </p>
+            </div>
+
+            <aside class="puzzle-status" aria-label="Puzzle status">
+              <span class="status-title">lives</span>
+              <div class="lives" id="lifeDisplay" aria-label="3 lives"></div>
+              <p class="puzzle-message" id="puzzleMessage">Start with the glowing square.</p>
+              <div class="status-actions">
+                <button class="replay-button small-button" id="newPuzzleButton" type="button">new puzzle</button>
+                <button class="skip-button" id="skipPuzzleButton" type="button">skip</button>
+              </div>
+            </aside>
+          </header>
+
+          <div class="board-wrap">
+            <div class="minesweeper-board" id="mineBoard" role="grid" aria-label="15 by 15 pink Minesweeper board"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage next-stage" id="nextStage" aria-label="Next part" aria-hidden="true">
+        <span class="decor-heart decor-heart-1" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-2" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-5" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-6" aria-hidden="true"></span>
+
+        <div class="next-card">
+          <p class="soft-label">next part</p>
+          <h2 id="nextTitle" data-text="you made it through!"></h2>
+          <p id="nextMessage" data-text="im sure you dont mind another fun game :)"></p>
+        </div>
+      </section>
+
+      <section class="stage chess-stage" id="chessStage" aria-label="Cute chess minigame" aria-hidden="true">
+        <div class="chess-shell">
+          <header class="chess-header">
+            <div>
+              <p class="soft-label puzzle-label">chess</p>
+              <h2>make your move</h2>
+              <p class="controls-copy">
+                <span>Pick a white piece</span>
+                <span>Then choose a square</span>
+              </p>
+            </div>
+
+            <aside class="chess-status" aria-label="Chess status">
+              <span class="status-title">match</span>
+              <p class="chess-turn" id="chessTurnLabel">your turn</p>
+              <p class="chess-message" id="chessMessage">Take the queen and the bot gives up.</p>
+              <div class="status-actions">
+                <button class="replay-button small-button" id="newChessButton" type="button">new game</button>
+                <button class="skip-button" id="skipChessButton" type="button">skip</button>
+              </div>
+            </aside>
+          </header>
+
+          <div class="chess-board-wrap">
+            <div class="chess-board" id="chessBoard" role="grid" aria-label="Player versus bot chess board"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage final-stage" id="finalStage" aria-label="Next part" aria-hidden="true">
+        <span class="decor-heart decor-heart-1" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-2" aria-hidden="true"></span>
+        <span class="decor-heart decor-heart-5" aria-hidden="true"></span>
+
+        <div class="next-card">
+          <p class="soft-label">i &lt;3 u</p>
+          <h2 id="finalTitle" data-text="you made it!"></h2>
+          <p id="finalMessage" data-text="i hope you enjoy everything"></p>
+        </div>
+      </section>
+
+      <section class="stage gift-stage" id="giftStage" aria-label="Gift surprise" aria-hidden="true">
+        <div class="gift-scene" id="giftScene">
+          <div class="gift-glow" aria-hidden="true"></div>
+          <div class="gift-art gift-closed">
+            <img class="gift-image" src="assets/gift/giftclosed.png" alt="A closed pink gift box">
+          </div>
+          <div class="gift-art gift-open">
+            <img class="gift-image" src="assets/gift/giftopen.png" alt="An open pink gift box">
+          </div>
+          <p class="gift-name">For ben</p>
+
+          <div class="flower-cloud" id="flowerCloud" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="stage letter-stage" id="letterStage" aria-label="Love letter" aria-hidden="true">
+        <div class="letter-layout">
+          <article class="letter-paper">
+            <div class="letter-holes" aria-hidden="true"></div>
+            <div class="letter-copy" id="letterCopy">
+              <p>ben,</p>
+              <p>i don't even know where to begin because I have so many feelings for you and not enough words to explain them.</p>
+              <p>you are the most important person in my life. not in a cute, overused way. i mean it in the most serious way possible. you are the best man i have ever met, and i will always be thankful that i get to love you. i love your beautiful green eyes.</p>
+              <p>i was so used to being alone and keeping people away from me before you came along. i had pushed everyone away for so long that i really didn't think anyone could come into my life and change it the way you did. but then you showed up, and everything changed. better. more light. more at ease. like you were the only thing that could bring light to a world that had been dark for too long.</p>
+              <p>you changed my life in ways that i don't think you fully understand. loving you has made me feel things i didn't know i needed. you make me feel safe, loved, seen, and understood in a way that i never thought i could.</p>
+              <p>i love you so much that it can be too much for me at times, in a good way. you mean so much to me, and i hope you never doubt that. i care about you more than anything else, and i really can't imagine my life without you.</p>
+              <p>i'll always be here for you, no matter what. i will always stand by you, i will support you, i will choose you. you have my heart completely and that will never change.</p>
+              <p>thank you for being the best thing that has ever happened to me.</p>
+              <p>i love you forever,<br>maria</p>
+            </div>
+          </article>
+
+          <aside class="letter-notes" aria-label="Extra notes">
+            <p>missing you so much</p>
+            <p>keep chewing on metal you're cute</p>
+            <p>GET BACK TO STUDYING RIGHT NOW</p>
+          </aside>
+        </div>
+
+        <button class="letter-next-button" id="letterNextButton" type="button" aria-label="Go to the final surprise">
+          <span>next</span>
+          <span class="letter-next-arrow" aria-hidden="true">&rarr;</span>
+        </button>
+
+        <div class="letter-finale" id="letterFinale" aria-hidden="true">
+          <div class="love-scene">
+            <div class="love-heart" id="loveHeart" aria-hidden="true"></div>
+            <div class="love-center" aria-label="Love message">
+              <span class="love-center-script">ben</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="skip-modal" id="skipModal" aria-hidden="true">
+        <section class="skip-dialog" role="dialog" aria-modal="true" aria-labelledby="skipTitle">
+          <p class="soft-label">wait</p>
+          <h3 id="skipTitle">are you sure you wanna skip? :(</h3>
+          <div class="skip-actions">
+            <button class="modal-button yes-button" id="confirmSkipButton" type="button">yes</button>
+            <button class="modal-button no-button" id="cancelSkipButton" type="button">no</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="chess-win-modal" id="chessWinModal" aria-hidden="true">
+        <section class="win-dialog" role="status" aria-live="polite">
+          <p class="soft-label">checkmate</p>
+          <h3>mariasprince has WON!</h3>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
